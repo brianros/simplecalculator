@@ -1,0 +1,87 @@
+.mainContainer {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+       
+
+.calcContainer {
+    
+    height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(4,75px);
+    grid-template-rows: repeat(6, 1 fr);
+    gap: 10px;
+    background-color: hsl(90, 93%, 45%);
+    padding: 20px;
+    border-radius: 20px;
+    
+
+}
+.screen { 
+    border: 4px hsl(180, 100%, 50%) solid;
+    border-radius: 15px;
+    padding: 15px;
+    height: 100px;
+    grid-area: 1/1 / 2/5;
+    background-color: azure;
+    
+    display: grid;
+    grid-template-columns: repeat(20, 05%);
+    grid-template-rows: repeat(2, 50%);
+} 
+
+.pixels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* Add for visualization */
+}
+button {
+    border-radius: 20px;
+    border: 2px solid #239122;
+    box-shadow: 2px 2px #239122;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+
+button:hover {
+    background-color: #239122;
+}
+/* 
+button:active {
+    background-color: red;
+} */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0f0;
+    text-align: center;
+    padding: 1px 0;
+}
+
+.draggable:hover {
+    opacity: 0.8;}
+
+.draggable {
+    position: absolute;
+    cursor: move;
+    z-index: 1000; }
+    
+    
+.screenUpperLine { 
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        
+        
+    }
