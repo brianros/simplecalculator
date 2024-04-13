@@ -47,43 +47,43 @@ function populateKeys(node) {
 }
 
 const screen = document.querySelector('.screen');
-/* 
-function createPixels() {
-    for (let i = 1; i <= 20; i++) {
-        const pixel = document.createElement('div');
-        pixel.textContent = i;
-        pixel.classList.add('inputPixel');
-        pixel.classList.add('pixels');
-        pixel.style.gridArea = `${Math.ceil(i / 10)}/${(i - 1) % 10 + 1}`; // Calculate grid area dynamically
-        screen.appendChild(pixel);
-    }
-}
-
-createPixels();
- */
 let savedInput = []
-let currentInput = ''
+let curatedInput = []
 let screenUpperLine = document.createElement('div')
 screenUpperLine.classList.add('screenUpperLine')
 screen.appendChild(screenUpperLine)
 
-function takeInput (node) {
-    if (!isNaN(node.innerText) || node.innerText === '+' || node.innerText === '-' || node.innerText === 'X' || node.innerText === '/' || node.innerText === '(' || node.innerText === ')' || node.innerText === '.' ) {
-        savedInput.push(node.innerText)
-        screenUpperLine.textContent = savedInput.join(' ');
+
+function sanityCheck(button) {
+    if  (!isNaN(parseInt(button))) {
+        curatedInput.push(button)}
+
+    switch (button) {
+        case 'DEL':
+            curatedInput.splice(-1);
+            break;
+        case 'AC':
+            curatedInput = [];
+            break;
+        case '=':
+            calculateResult(savedInput);
+            break;
     }
-    else
-        switch (node.innerText){
-        case 'DEL' : savedInput.splice(-1,1)
-        screenUpperLine.textContent = savedInput.join(' ');
-        case 'AC' : savedInput = []
-        screenUpperLine.textContent = savedInput.join(' ');
-        case '=' : calculateResult(savedInput)
-        break;
-    }   
-    
-    console.log(savedInput)
+     
+    screenUpperLine.textContent = curatedInput.join(' ')
+    console.log(curatedInput)
+    console.log(button)
 }
+
+
+
+function takeInput (node) {
+    
+        savedInput.push(node.innerText)
+        sanityCheck(node.innerText)
+        ;
+    }
+    
 function calculateResult () {
     console.log('not ready')
     
