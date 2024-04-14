@@ -1,9 +1,16 @@
+body {display: flex;
+    background-color: hsla(0, 87%, 39%, 0.466);
+    justify-content: center;}
+
 .mainContainer {
-    padding-top: 10px;
+    margin-top: 10px;
     display: flex;
+    border-radius: 20px;
     justify-content: center;
     align-items: center;
-    
+    border: black 1px solid;
+    box-shadow: 2px 2px hsl(90, 100%, 21%);
+
 }
        
 
@@ -21,24 +28,21 @@
 
 }
 .screen { 
-    border: 4px hsl(180, 100%, 50%) solid;
+    border: 4px #239122 solid;
     border-radius: 15px;
     padding: 15px;
     height: 100px;
     grid-area: 1/1 / 2/5;
     background-color: azure;
-    
     display: grid;
-    grid-template-columns: repeat(20, 05%);
-    grid-template-rows: repeat(2, 50%);
 } 
 
-.pixels {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black; /* Add for visualization */
-}
+.screen > * {
+    text-align: right;
+    justify-content: right;
+ }
+
+
 button {
     border-radius: 20px;
     border: 2px solid #239122;
@@ -60,10 +64,10 @@ button {
 button:hover {
     background-color: #239122;
 }
-/* 
+ 
 button:active {
     background-color: red;
-} */
+} 
 
 .footer {
     position: fixed;
@@ -74,9 +78,6 @@ button:active {
     text-align: center;
     padding: 1px 0;
 }
-
-.draggable:hover {
-    opacity: 0.8;}
 
 .draggable {
     position: absolute;
