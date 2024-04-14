@@ -29,65 +29,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 /* here starts the logic */
 
 const keypad = document.querySelectorAll('.buttons')
 
 function populateKeys(node) {
-    let symbols = ['(',')','AC','/','7','8','9','X','4','5','6','-','1','2','3','+','0','.','DEL','=']
+    let symbols = ['AC','DEL','7','8','9','X','4','5','6','-','1','2','3','+','0','.','/','=']
     for (let i = 0; i < node.length && i < symbols.length; i++) {
         node[i].textContent = symbols[i];
         node[i].setAttribute("id",symbols[i])
-        node[i].addEventListener('click',  () => takeInput(node[i])
-    
-    ); 
-        
-}
+        node[i].addEventListener('click', () => takeInput(node[i].textContent));
+    }
 }
 
 const screen = document.querySelector('.screen');
 let savedInput = []
-let curatedInput = []
+let operands = ['', ''] // Initialize operands array with two empty strings
+let operator = ''
+let index = 0
 let screenUpperLine = document.createElement('div')
 screenUpperLine.classList.add('screenUpperLine')
 screen.appendChild(screenUpperLine)
 
-
-function sanityCheck(button) {
-    if  (!isNaN(parseInt(button))) {
-        curatedInput.push(button)}
-
-    switch (button) {
-        case 'DEL':
-            curatedInput.splice(-1);
-            break;
-        case 'AC':
-            curatedInput = [];
-            break;
-        case '=':
-            calculateResult(savedInput);
-            break;
-    }
-     
-    screenUpperLine.textContent = curatedInput.join(' ')
-    console.log(curatedInput)
-    console.log(button)
+/* this function passes the user input */
+function takeInput(key) {
+    savedInput.push(key)
+    sanityCheck(key)
 }
 
-
-
-function takeInput (node) {
-    
-        savedInput.push(node.innerText)
-        sanityCheck(node.innerText)
-        ;
-    }
-    
-function calculateResult () {
-    console.log('not ready')
-    
-}
 populateKeys(keypad)
-
-

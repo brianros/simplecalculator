@@ -49,6 +49,12 @@ button {
     box-sizing: border-box;
 }
 
+#AC  {
+    grid-column: 1 / 3;
+    grid-row-start: 2;
+}
+#DEL {grid-column: 3 / 5;
+    grid-row-start: 2;}
 
 
 button:hover {
