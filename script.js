@@ -101,6 +101,7 @@ function screenLog(upperLine, lowerLine) {
 }
 
 function parseInput (input) {
+    if (savedInput[index].length <= 9){
     switch (input) {
         case 'DEL': 
         if (savedInput[1].length > 0) {
@@ -121,6 +122,7 @@ function parseInput (input) {
         case 'AC': clearScreen()
         break;
     }
+    
     
     
     if (!isNaN(input)) 
@@ -154,7 +156,7 @@ function parseInput (input) {
         }
 }
     
-
+}   else {savedInput[index].splice(-1)}
     
 }
 
