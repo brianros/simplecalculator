@@ -140,19 +140,19 @@ function parseInput (input) {
         if (input === '-' && savedInput[0].length===0) {
             savedInput[index].push(input)
             screenLog(savedInput[0].join('')+' ' +operator+' '+ savedInput[1].join(''),'')
-            console.log('first:'+savedInput[0]+'second:'+savedInput[1]+'operator is:'+operator)}
+        }
             
             else if (savedInput[0].length===0) {
                 index=0
                 screenLog(savedInput[0].join('')+' ' +operator+' '+ savedInput[1].join(''),'')
-                console.log('estas aca3')
+         
             }
         
         else if (savedInput[0].length!=0 && savedInput[0].some(item => !isNaN(item))) {
             operator=input
             index=1
             screenLog(savedInput[0].join('')+' ' +operator+' '+ savedInput[1].join(''),'')
-            console.log('first:'+savedInput[0]+'second:'+savedInput[1]+'operator is:'+operator)
+            
         }
 }
     
